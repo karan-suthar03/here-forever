@@ -15,6 +15,7 @@ var numValue;
 const dbRef = firebase.database().ref("button-trigger");
 const dbnum = firebase.database().ref("num");
 const dbmsg = firebase.database().ref("msg");
+const dbflag = firebase.database().ref("flag");
 dbnum.on("value", (snapshot) => {
     const numValue = snapshot.val();
     console.log("Value changed to: " + numValue);
@@ -23,6 +24,16 @@ dbnum.on("value", (snapshot) => {
 		
 	});
     // Your code to change the background color of the app goes here
+});
+dbflag.on("value", (snapshot) => { 
+	var hehe = snapshot.val();
+	if(hehe){
+		document.getElementById("notify").innerHTML = "notification: on";
+	}else{
+		document.getElementById("notify").innerHTML = "notification: off";
+	}
+	
+	console.log(hehe);
 });
 // add an event listener to the button
 document.getElementById("my-button").addEventListener("click", () => {
