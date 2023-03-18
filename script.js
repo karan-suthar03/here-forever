@@ -16,6 +16,8 @@ const dbRef = firebase.database().ref("button-trigger");
 const dbnum = firebase.database().ref("num");
 const dbmsg = firebase.database().ref("msg");
 const dbflag = firebase.database().ref("flag");
+const dmsgs = firebase.database().ref("msgs");
+var input = document.getElementById("inputt");
 dbnum.on("value", (snapshot) => {
     const numValue = snapshot.val();
     console.log("Value changed to: " + numValue);
@@ -34,6 +36,14 @@ dbflag.on("value", (snapshot) => {
 	}
 	
 	console.log(hehe);
+});
+
+
+input.addEventListener("input", function() {
+    // Your code here
+	var text = input.value;
+	dmsgs.set(text);
+	
 });
 // add an event listener to the button
 document.getElementById("my-button").addEventListener("click", () => {
