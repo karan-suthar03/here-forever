@@ -10,8 +10,8 @@
 .chat_window {
     position: absolute;
     width: calc(100% - 20px);
-    max-width: 800px;
-    height: 500px;
+    max-width: 85%;
+    height: 85%;
     border-radius: 10px;
     background-color: #fff;
     left: 50%;
@@ -62,36 +62,39 @@
 }
 
 .messages {
+	overflow-x: hidden;
     position: relative;
     list-style: none;
-    padding: 20px 10px 0 10px;
+    padding: 20px 10px 0px 22px;
     margin: 0;
-    height: 347px;
-    overflow: scroll;
+    height: calc(100% - 150px);
+	display: flex;
+	flex-direction: column;
 }
 
 .messages .message {
     clear: both;
     overflow: hidden;
-    margin-bottom: 20px;
     transition: all 0.5s linear;
     opacity: 0;
+	height:auto;
+	padding-bottom: 17px;
+	position: inherit;
 }
 
 .messages .message.left .avatar {
-    background-color: #f5886e;
     float: left;
 }
 
 .messages .message.left .text_wrapper {
-    background-color: #ffe6cb;
+    background-color: #00B5E2;
     margin-left: 20px;
 }
 
 .messages .message.left .text_wrapper::after,
 .messages .message.left .text_wrapper::before {
     right: 100%;
-    border-right-color: #ffe6cb;
+    border-right-color :#00B5E2;
 }
 
 .messages .message.left .text {
@@ -99,12 +102,11 @@
 }
 
 .messages .message.right .avatar {
-    background-color: #fdbf68;
     float: right;
 }
 
 .messages .message.right .text_wrapper {
-    background-color: #c7eafc;
+    background-color: #FFB6C1;
     margin-right: 20px;
     float: right;
 }
@@ -112,7 +114,7 @@
 .messages .message.right .text_wrapper::after,
 .messages .message.right .text_wrapper::before {
     left: 100%;
-    border-left-color: #c7eafc;
+    border-left-color: #FFB6C1;
 }
 
 .messages .message.right .text {
@@ -124,19 +126,19 @@
 }
 
 .messages .message .avatar {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: inline-block;
 }
 
 .messages .message .text_wrapper {
     display: inline-block;
-    padding: 20px;
-    border-radius: 6px;
-    width: calc(100% - 85px);
-    min-width: 100px;
-    position: relative;
+    padding: 16px 16px;
+    border-radius: 22px;
+    max-width:640px;
+	height:100%;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .messages .message .text_wrapper::after,
@@ -166,12 +168,12 @@
 }
 
 .bottom_wrapper {
-    position: relative;
     width: 100%;
     background-color: #fff;
     padding: 20px 20px;
     position: absolute;
     bottom: 0;
+	display: flex;
 }
 
 .bottom_wrapper .message_input_wrapper {
@@ -179,23 +181,24 @@
     height: 50px;
     border-radius: 25px;
     border: 1px solid #bcbdc0;
-    width: 75%;
+    width: calc(100% - 172px);
     position: relative;
-    padding: 0 20px;
+    padding: 0px 0px 0px 30px;
 }
 
 .bottom_wrapper .message_input_wrapper .message_input {
-    border: none;
+   border: none;
     height: 100%;
     box-sizing: border-box;
-    width: calc(100% - 40px);
+    width: calc(100% - 75px);
     position: absolute;
     outline-width: 0;
-    color: gray;
+    color: black;
+    font-size: 16px;
 }
 
 .bottom_wrapper .send_message {
-    width: 20%;
+    width: 100px;
     height: 50px;
     display: inline-block;
     border-radius: 50px;
@@ -206,6 +209,7 @@
     transition: all 0.2s linear;
     text-align: center;
     float: right;
+    margin-left: 17px;
 }
 
 .bottom_wrapper .send_message:hover {
@@ -226,4 +230,51 @@
 
 .message_template {
     display: none;
+}
+	.emoji-drawer {
+        display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background: #d5d5f5;
+}
+.bahar{
+	    top: -186px;
+    margin-bottom: 32px;
+    transition: opacity 0.2s;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 177px;
+    border-radius: 29px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+.hidden {
+  opacity: 0;
+}
+
+.emoji {
+    text-align: center;
+    font-size: 24px;
+    padding: 8px;
+  font-family: "Apple Color Emoji", sans-serif;
+  font-size: 2rem;
+  display: inline-block;
+
+}
+.ok {
+background-color: transparent;
+    border: none;
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 4px 13px 0px 2px;
+
+}
+.emoji:hover {
+    cursor: pointer;
+}
+.okk{
+
+  display: flex;
+    align-items: center;
+    flex-direction: row;
 }
