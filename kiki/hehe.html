@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+	
+    <meta charset="utf-8">
+    <title>chat karo maje me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+
+    </style>
+</head>
+<div id="aa">
+    <div class="chat_window">
+        <div class="top_menu">
+            <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize"></div>
+                <div class="button maximize"></div>
+            </div>
+            <div class="title">Chat</div>
+        </div>
+        <div class="messages">
+		</div>
+        <div class="bottom_wrapper clearfix">
+		<div class="okk">
+		<button id="emoji-button" class="ok" onclick="toggleEmojiDrawer()"><svg aria-label="Emoji" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="40" role="img" viewBox="0 0 24 24" width="40"><title>Emoji</title><path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path></svg></button>
+		</div>
+		<div id="bahar" class="bahar hidden">
+<div id="drawer" class="emoji-drawer hidden"> 
+</div>
+</div>
+            <div class="message_input_wrapper">
+                <input id="input" class="message_input" placeholder="idhar likho" />
+            </div>
+            <div class="send_message">
+                <div class="icon"></div>
+                <div class="text">Send</div>
+            </div>
+        </div>
+    </div>
+    <div class="message_template">
+        <li class="message">
+            <div class="avatar"></div>
+            <div class="text_wrapper">
+                <div class="text"></div>
+            </div>
+        </li>
+    </div>
+</div>
+<script>
+
+document.body.ondrop = handleDrop;
+
+function handleDrop(event) {
+  event.preventDefault(); // prevent default behavior of dropping outside of a dropzone
+  const file = event.dataTransfer.files[0]; // get the dropped file
+  const type = file.type.split('/')[0]; // get the type of file (image or video)
+  
+  if (type === 'image') {
+    const image = URL.createObjectURL(file); // create a URL for the image
+    performImageFunction(image); // call a function to perform some action on the image
+  } else if (type === 'video') {
+    const video = URL.createObjectURL(file); // create a URL for the video
+    performVideoFunction(video); // call a function to perform some action on the video
+  }
+}
+
+function performImageFunction(image) {
+  // do something with the image URL
+  console.log('Image dropped:', image);
+}
+
+function performVideoFunction(video) {
+  // do something with the video URL
+  console.log('Video dropped:', video);
+}
+
+</script>
+</body>
+
+</html>
