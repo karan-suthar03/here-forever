@@ -42,7 +42,7 @@ userRef.get().then((doc) => {
                     if (text.indexOf(textToRemove1) === 0) {
                         text = text.replace(new RegExp("^" + textToRemove1), "");
                     } else if (text.indexOf(textToRemove2) === 0) {
-                        text = text.replace(new RegExp("^" + textToRemove2), "");
+                        text = text.replace(new RegExp("^" + textToRemove2), ""); 
                     }
                     const editedTextNode = document.createTextNode(text);
                     textElement.appendChild(editedTextNode);
