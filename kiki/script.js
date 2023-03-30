@@ -82,7 +82,7 @@ sendMessageButton.addEventListener('click', () => {
     if (messageText) {
         db.collection('messages').add({
             message: `${username}: ${messageText}`,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            timestamp: firebase.firestore.FieldValue.serverTimestamp() 
         });
         messageInput.value = '';
         messageInput.focus();
